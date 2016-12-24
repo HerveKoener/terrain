@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta content="text/html; charset=UTF-8" name="Content-Type">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+<script type="text/javascript" src="priority-queue.min.js"></script>
+<script type="text/javascript" src="language.js"></script>
+<script type="text/javascript" src="../src/terrain.js"></script>
+<link type="text/css" href="terrain.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="final"></div>
+<script>
+	/* Please see https://github.com/adamhooper/js-priority-queue for the last version of priority-queue.min.js */
+	/* Please see https://github.com/mewo2/naming-language/ for the last version of language.js */
+	/* More info in http://mewo2.com/notes/terrain/ */
+	var finalDiv = d3.select("div#final");
+	var finalSVG = addSVG(finalDiv);
+	var params = defaultParams;
+	
+	function addSVG(div) {
+		return div.insert("svg", ":first-child")
+			.attr("height", 670)
+			.attr("width", 670)
+			.attr("viewBox", "-500 -500 1000 1000");
+	}
+	
+	finalDiv.append("button")
+	.text("Generate map")
+	.on("click", function () {
+		doMap(finalSVG, defaultParams);
+	});
+</script>
+</body>
+</html>
