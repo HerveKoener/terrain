@@ -562,18 +562,18 @@ function getTerritories(render) {
             });
         }
     }
-    terr.mesh = h.mesh;
     return terr;
 }
 
 function getBorders(render) {
     let terr = render.terr;
     let h = render.h;
+	let mesh = h.mesh;
     let edges = [];
-    for (let i = 0; i < terr.mesh.edges.length; i++) {
-        let e = terr.mesh.edges[i];
+    for (let i = 0; i < mesh.edges.length; i++) {
+        let e = mesh.edges[i];
         if (e[3] == undefined) continue;
-        if (isnearedge(terr.mesh, e[0]) || isnearedge(terr.mesh, e[1])) continue;
+        if (isnearedge(mesh, e[0]) || isnearedge(mesh, e[1])) continue;
         if (h[e[0]] < 0 || h[e[1]] < 0) continue;
         if (terr[e[0]] != terr[e[1]]) {
             edges.push([e[2], e[3]]);
@@ -816,8 +816,8 @@ function terrCenter(h, terr, city, landOnly) {
     for (let i = 0; i < terr.length; i++) {
         if (terr[i] != city) continue;
         if (landOnly && h[i] <= 0) continue;
-        x += terr.mesh.vxs[i][0];
-        y += terr.mesh.vxs[i][1];
+        x += h.mesh.vxs[i][0];
+        y += h.mesh.vxs[i][1];
         n++;
     }
     return [x/n, y/n];
