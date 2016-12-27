@@ -1009,6 +1009,7 @@ function drawMap(svg, render) {
     render.borders = getBorders(render);
     drawPaths(svg, 'river', render.rivers);
     drawPaths(svg, 'coast', render.coasts);
+	drawPaths(svg, 'sand', render.coasts);
     drawPaths(svg, 'border', render.borders);
     visualizeSlopes(svg, render);
     visualizeCities(svg, render);

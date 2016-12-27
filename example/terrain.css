@@ -15,12 +15,15 @@
 
 .river {
 	stroke-width: 2;
-	/*stroke:blue;*/
 }
 
 .coast {
-	stroke-width: 4;
-	/*stroke:blue;*/
+	stroke-width: 2;
+}
+
+.sand {
+	stroke-width: 8;
+	stroke-opacity: 0.2;
 }
 
 .border {
